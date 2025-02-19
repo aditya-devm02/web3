@@ -1,5 +1,6 @@
 import { SessionProvider, useSession } from "next-auth/react";
 import { CartProvider } from "../context/CartContext";
+import { signIn } from "next-auth/react";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
@@ -25,6 +26,14 @@ function Auth({ children }) {
   }
 
   return children;
+}
+
+function LoginButton() {
+  return (
+    <button onClick={() => signIn("google")}>
+      Sign in with Google
+    </button>
+  );
 }
 
 export default MyApp; 

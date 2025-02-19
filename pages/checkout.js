@@ -1,4 +1,4 @@
-// pages/checkout.js
+
 import Checkout from "../components/Checkout";
 
 const CheckoutPage = () => {
