@@ -1,5 +1,6 @@
-import NextAuth from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
+// pages/api/auth/[...nextauth].ts
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
   providers: [
@@ -9,4 +10,4 @@ export default NextAuth({
     }),
   ],
   secret: process.env.AUTH_SECRET,
-}); 
+});
