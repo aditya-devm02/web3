@@ -1,6 +1,7 @@
 import { SessionProvider, useSession } from "next-auth/react";
 import { CartProvider } from "../context/CartContext";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
@@ -16,13 +17,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
 function Auth({ children }) {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   if (status === "loading") {
-    return <div>Loading...</div>; // Show a loading state while checking session
+    return <div>Loading...</div>;
   }
 
   if (!session) {
-    return <div>Please sign in to access the application.</div>; // Redirect or show a message
+    router.push("/auth/signin");
+    return null;
   }
 
   return children;
