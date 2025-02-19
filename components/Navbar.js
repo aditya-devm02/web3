@@ -15,14 +15,14 @@ const Navbar = () => {
         <>
           <span>Welcome, {session.user.name}</span>
           <button onClick={() => signOut()}>Sign Out</button>
+          {userWallet ? (
+            <button onClick={() => disconnect()}>Disconnect Wallet</button>
+          ) : (
+            <button onClick={() => connect()}>Connect Wallet</button>
+          )}
         </>
       ) : (
         <button onClick={() => signIn("google")}>Sign In</button>
-      )}
-      {userWallet ? (
-        <button onClick={() => disconnect()}>Disconnect Wallet</button>
-      ) : (
-        <button onClick={() => connect()}>Connect Wallet</button>
       )}
     </nav>
   );
